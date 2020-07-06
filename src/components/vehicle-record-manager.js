@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import CarImage from "./car-image";
 
 export default class VehicleRecordManager extends Component {
   constructor(props) {
