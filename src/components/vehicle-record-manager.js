@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { data } from "autoprefixer";
+
 
 export default class VehicleRecordManager extends Component {
   constructor(props) {
@@ -17,7 +19,6 @@ export default class VehicleRecordManager extends Component {
     this.getVehicleRecord = this.getVehicleRecord.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCarImageSubmit = this.handleCarImageSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
   handleInput(event) {
@@ -26,19 +27,6 @@ export default class VehicleRecordManager extends Component {
     });
   }
 
-  handleCarImageSubmit() {
-    const form = new FormData();
-    form.append("name", this.state.file.name);
-    form.append("type", this.state.file.type);
-    form.append("data", this.state.file);
-
-    fetch("http://127.0.0.1:5000/file/add", { method: "POST", body: form })
-      .then((response) => {
-        response.json();
-      })
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
-  }
 
   buildForm() {
     let formData = new FormData();
@@ -48,6 +36,9 @@ export default class VehicleRecordManager extends Component {
     formData.append("miles", this.state.miles);
     formData.append("year", this.state.year);
     formData.append("description", this.state.description);
+    formData.append("name", this.state.file.name);
+    formData.append("type", this.state.file.type);
+    formData.append("data", this.state.file);
 
     return formData;
   }
@@ -79,8 +70,10 @@ export default class VehicleRecordManager extends Component {
       method: "GET",
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
+      .then((data) => this.setState({
+        data: data
+      }))
+      .catch((error) => console.log(error))
   }
 
   componentDidMount() {
@@ -89,13 +82,14 @@ export default class VehicleRecordManager extends Component {
   }
 
   render() {
+    const {data} = this.state
     return (
       <div className="vehicle-records-manager-wrapper">
         <div className="form-container">
           <h1>Vehicle Form</h1>
           <form
+          onChange={this.handleChange}
             onSubmit={() => {
-              this.handleCarImageSubmit();
               this.handleSubmit();
             }}
           >
@@ -147,8 +141,21 @@ export default class VehicleRecordManager extends Component {
               <button type="submit">Save Vehicle</button>
             </div>
           </form>
+          <div className="vehicle-info">
+            <h1>Vehicle Record</h1>
+            <p>Here you will find all vehicle records in database</p>
+            {data.map((data => <div>
+              <h1>Vehicle Record{data.id}</h1>
+             <p>{data.description}</p>
+             <p>{data.make}</p>
+             <p>{data.model}</p>
+             <p>{data.miles}</p>
+             <p>{data.year}</p>
+             <img src={data.file_type} />
+              </div>))}
+          </div>
         </div>
-      </div>
-    );
+        </div>
+    )
   }
 }
