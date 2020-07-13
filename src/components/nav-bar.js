@@ -15,6 +15,8 @@ const NavigationBar = (props) => {
 
   return (
     <div className="nav-wrapper">
+      <label for="toggle">&#9776;</label>
+      <input type="checkbox" id="toggle" />
       <div className="nav-link-wrapper">
         <NavLink exact to="/" activeClassName="nav-link-active">
           Home

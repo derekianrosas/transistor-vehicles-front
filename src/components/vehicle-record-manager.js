@@ -102,8 +102,10 @@ export default class VehicleRecordManager extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="description-text">
               <textarea
+                cols="30"
+                rows="10"
                 type="text"
                 name="description"
                 placeholder="Description"
