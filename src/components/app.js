@@ -4,6 +4,7 @@ import VehicleRecordManager from "./vehicle-record-manager";
 import ParkingGarage from "./parking-garage";
 import NavigationBar from "./nav-bar";
 import VehicleArticles from "./vehicle-articles";
+import Home from "./home";
 
 export default class App extends Component {
   render() {
@@ -11,6 +12,9 @@ export default class App extends Component {
       <div className="app">
         <Router>
           <NavigationBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+          </Switch>
           <Switch>
             <Route path="/vehicle-manager" component={VehicleRecordManager} />
           </Switch>
