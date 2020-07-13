@@ -112,7 +112,9 @@ export default class VehicleRecordManager extends Component {
               />
             </div>
             <div>
-              <button type="submit">Save Vehicle</button>
+              <button className="btn" type="submit">
+                Save Vehicle
+              </button>
             </div>
           </form>
         </div>

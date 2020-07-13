@@ -1,14 +1,27 @@
-.form-container {
-    display: flex;
-    margin-top: 10px;
-
-    h1 {
-        margin: 0em;
-        font-size: 1.2em;
-    }
+h2 {
+  text-align: center;
 }
 
-.vehicle-manager-title{
-    display: flex;
-    justify-content: center;
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+textarea {
+  width: 348px;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  color: white;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
 }
