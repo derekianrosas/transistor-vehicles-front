@@ -1,22 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { data } from "autoprefixer";
-
 
 export default class VehicleRecordManager extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      file: {},
       data: [],
-      make: "",
+      manufacturer: "",
       model: "",
       miles: "",
       year: "",
       description: "",
     };
-    this.getVehicleRecord = this.getVehicleRecord.bind(this);
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -27,18 +24,14 @@ export default class VehicleRecordManager extends Component {
     });
   }
 
-
   buildForm() {
     let formData = new FormData();
 
-    formData.append("make", this.state.make);
+    formData.append("manufacturer", this.state.manufacturer);
     formData.append("model", this.state.model);
     formData.append("miles", this.state.miles);
     formData.append("year", this.state.year);
     formData.append("description", this.state.description);
-    formData.append("name", this.state.file.name);
-    formData.append("type", this.state.file.type);
-    formData.append("data", this.state.file);
 
     return formData;
   }
@@ -46,7 +39,7 @@ export default class VehicleRecordManager extends Component {
   handleSubmit(event) {
     axios
       .post(
-        "http://127.0.0.1:5000/vehicle_record/add_vehicle",
+        "http://127.0.0.1:5000/vehicle-record/add-vehicle",
         this.buildForm()
       )
       .then((response) => {
@@ -65,30 +58,14 @@ export default class VehicleRecordManager extends Component {
     });
   }
 
-  getVehicleRecord() {
-    fetch("http://127.0.0.1:5000/vehicle_record/get_all_vehicle_records", {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => this.setState({
-        data: data
-      }))
-      .catch((error) => console.log(error))
-  }
-
-  componentDidMount() {
-    console.log("event", event);
-    this.getVehicleRecord();
-  }
-
   render() {
-    const {data} = this.state
     return (
       <div className="vehicle-records-manager-wrapper">
+        <h2>Parking Garage</h2>
         <div className="form-container">
           <h1>Vehicle Form</h1>
           <form
-          onChange={this.handleChange}
+            onChange={this.handleChange}
             onSubmit={() => {
               this.handleSubmit();
             }}
@@ -96,8 +73,8 @@ export default class VehicleRecordManager extends Component {
             <div>
               <input
                 type="text"
-                name="make"
-                placeholder="Make"
+                name="manufacturer"
+                placeholder="Manufacturer"
                 value={this.state.make}
                 onChange={this.handleChange}
               />
@@ -126,7 +103,7 @@ export default class VehicleRecordManager extends Component {
               />
             </div>
             <div>
-              <input
+              <textarea
                 type="text"
                 name="description"
                 placeholder="Description"
@@ -134,28 +111,12 @@ export default class VehicleRecordManager extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="car-image-wrapper">
-              <input onChange={this.handleInput} type="file" />
-            </div>
             <div>
               <button type="submit">Save Vehicle</button>
             </div>
           </form>
-          <div className="vehicle-info">
-            <h1>Vehicle Record</h1>
-            <p>Here you will find all vehicle records in database</p>
-            {data.map((data => <div>
-              <h1>Vehicle Record{data.id}</h1>
-             <p>{data.description}</p>
-             <p>{data.make}</p>
-             <p>{data.model}</p>
-             <p>{data.miles}</p>
-             <p>{data.year}</p>
-             <img src={data.file_type} />
-              </div>))}
-          </div>
         </div>
-        </div>
-    )
+      </div>
+    );
   }
 }

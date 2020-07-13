@@ -25,6 +25,16 @@ const NavigationBar = (props) => {
           Vehicle Manager
         </NavLink>
       </div>
+      <div className="nav-link-wrapper">
+        <NavLink exact to="/parking-garage" activeClassName="nav-link-active">
+          Parking Garage
+        </NavLink>
+      </div>
+      <div className="nav-link-wrapper">
+        <NavLink exact to="/vehicle-articles" activeClassName="nav-link-active">
+          Electric Articles
+        </NavLink>
+      </div>
     </div>
   );
 };
