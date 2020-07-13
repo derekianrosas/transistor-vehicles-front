@@ -1,3 +1,26 @@
-.articles {
+.card-block {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-text {
+  width: 400px;
+  height: 200px;
+  padding: 10px;
+}
+
+.card-footer {
+  height: 100px;
+  width: 300px;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h3 {
+  text-align: center;
 }
