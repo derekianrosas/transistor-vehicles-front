@@ -7,4 +7,24 @@ export default function login(props) {
     "fetch error": "An error occured. Please try again later.",
     "not verified": "Incorrect username or password.",
   };
+
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <input
+        type="text"
+        name="usernameInput"
+        placeholder="Username"
+        value={props.usernameInput}
+        onChange={props.handleChange}
+      />
+      <input
+        type="text"
+        name="passwordInput"
+        placeholder="Password"
+        value={props.passwordInput}
+        onChange={props.handleChange}
+      />
+      <button>Login</button>
+    </form>
+  );
 }
