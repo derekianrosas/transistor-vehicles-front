@@ -25,6 +25,10 @@ export default function login(props) {
         onChange={props.handleChange}
       />
       <button>Login</button>
+      <p className="error">{errorMessage[props.errorMessage]}</p>
+      <p onClick={props.handleClick}>
+        Don't have an account? Click here to sign up!
+      </p>
     </form>
   );
 }
