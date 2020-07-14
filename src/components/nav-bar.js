@@ -17,6 +17,11 @@ const NavigationBar = (props) => {
     <div className="nav-wrapper">
       <div className="nav-link-wrapper">
         <NavLink exact to="/" activeClassName="nav-link-active">
+          Login
+        </NavLink>
+      </div>
+      <div className="nav-link-wrapper">
+        <NavLink exact to="/home" activeClassName="nav-link-active">
           Home
         </NavLink>
       </div>

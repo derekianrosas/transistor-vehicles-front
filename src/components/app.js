@@ -5,6 +5,7 @@ import ParkingGarage from "./parking-garage";
 import NavigationBar from "./nav-bar";
 import VehicleArticles from "./vehicle-articles";
 import Home from "./home";
+import Auth from "./login/auth";
 
 export default class App extends Component {
   render() {
@@ -13,7 +14,10 @@ export default class App extends Component {
         <Router>
           <NavigationBar />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Auth} />
+          </Switch>
+          <Switch>
+            <Route path="/home" component={Home} />
           </Switch>
           <Switch>
             <Route path="/vehicle-manager" component={VehicleRecordManager} />

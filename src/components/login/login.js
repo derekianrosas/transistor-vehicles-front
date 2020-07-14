@@ -18,13 +18,13 @@ export default function login(props) {
         onChange={props.handleChange}
       />
       <input
-        type="text"
+        type="password"
         name="passwordInput"
         placeholder="Password"
         value={props.passwordInput}
         onChange={props.handleChange}
       />
-      <button>Login</button>
+      <button className="btn">Login</button>
       <p className="error">{errorMessage[props.errorMessage]}</p>
       <p onClick={props.handleClick}>
         Don't have an account? Click here to sign up!

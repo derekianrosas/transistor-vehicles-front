@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Login from "./login";
+import Signup from "./signup";
 
 export default class Auth extends Component {
   constructor(props) {
@@ -62,6 +64,36 @@ export default class Auth extends Component {
         });
     }
   }
+  handleLogin(event) {
+    event.preventDefault();
+
+    if (this.state.usernameInput === "" || this.state.passwordInput === "") {
+      this.setState({ errorMessage: "blank field" });
+    } else {
+      fetch("http://127.0.0.1:5000/user/verification", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          username: this.state.usernameInput,
+          password: this.state.passwordInput,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+
+          if (data === "User NOT Verified") {
+            this.setState({ errorMessage: "not verified" });
+          } else {
+            this.setState({ errorMessage: "none" });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.setState({ errorMessage: "fetch error" });
+        });
+    }
+  }
 
   handleClick() {
     this.setState({
@@ -79,7 +111,7 @@ export default class Auth extends Component {
         {this.state.authMethod === "login" ? (
           <Login
             handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
+            handleSubmit={this.handleLogin}
             usernameInput={this.state.usernameInput}
             passwordInput={this.state.passwordInput}
             errorMessage={this.state.errorMessage}
@@ -88,7 +120,7 @@ export default class Auth extends Component {
         ) : (
           <Signup
             handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
+            handleSubmit={this.handleSignup}
             usernameInput={this.state.usernameInput}
             passwordInput={this.state.passwordInput}
             errorMessage={this.state.errorMessage}
