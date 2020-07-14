@@ -16,12 +16,6 @@ h2 {
   flex-direction: column;
 }
 
-textarea {
-  width: 348px;
-  display: block;
-  border-radius: 4px;
-}
-
 .btn {
   cursor: pointer;
   background-color: #3498db;
@@ -42,11 +36,6 @@ input {
   width: 100%;
   padding: 10px;
   font-size: 14px;
-}
-
-.description-text {
-  display: flex;
-  justify-content: center;
 }
 
 form {

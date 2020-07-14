@@ -9,7 +9,7 @@ export default function login(props) {
   };
 
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form className="form-container" onSubmit={props.handleSubmit}>
       <input
         type="text"
         name="usernameInput"
