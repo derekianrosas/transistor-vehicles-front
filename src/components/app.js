@@ -7,6 +7,7 @@ import NavigationBar from "./nav-bar";
 import VehicleArticles from "./vehicle-articles";
 import Home from "./home";
 import Auth from "./login/auth";
+import Body from "./carousel";
 
 export default class App extends Component {
   render() {
@@ -28,6 +29,9 @@ export default class App extends Component {
           </Switch>
           <Switch>
             <Route path="/vehicle-manager" component={VehicleRecordManager} />
+          </Switch>
+          <Switch>
+            <Route path="/carousel" component={Body} />
           </Switch>
         </Router>
       </div>

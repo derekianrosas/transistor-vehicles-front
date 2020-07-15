@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ImgComp from "./imgComp";
-import i1 from "../../static/assets/11.png";
+import i1 from "../../static/assets/13.jpg";
 import i2 from "../../static/assets/2.jpg";
-import i3 from "../../static/assets/3.jpg";
+import i3 from "../../static/assets/12.png";
 import i4 from "../../static/assets/4.jpg";
 import i5 from "../../static/assets/5.png";
 import i6 from "../../static/assets/6.jpg";

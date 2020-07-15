@@ -40,6 +40,11 @@ const NavigationBar = (props) => {
           Electric Articles
         </NavLink>
       </div>
+      <div className="nav-link-wrapper">
+        <NavLink exact to="/carousel" activeClassName="nav-link-active">
+          Carousel
+        </NavLink>
+      </div>
     </div>
   );
 };

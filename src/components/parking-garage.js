@@ -58,7 +58,6 @@ export default class ParkingGarage extends Component {
               <p>{data.manufacturer}</p>
               <p>{data.miles}</p>
               <p>{data.year}</p>
-              <img src={data.file_type} />
               <a onClick={() => this.deleteVehicleRecord(data)}>Delete</a>
             </div>
           ))}
