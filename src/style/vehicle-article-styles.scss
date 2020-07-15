@@ -97,3 +97,19 @@ img {
     display: block;
   }
 }
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $teal;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: $teal;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $dark-teal;
+}

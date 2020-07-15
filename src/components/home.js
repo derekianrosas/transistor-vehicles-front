@@ -1,11 +1,11 @@
 import React from "react";
 
-import Slider from "./slider";
+import Carousel from "./carousel";
 
 export default function () {
   return (
     <div>
-      <Slider />
+      <Carousel />
     </div>
   );
 }

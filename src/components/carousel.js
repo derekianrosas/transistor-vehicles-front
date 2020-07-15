@@ -2,12 +2,20 @@ import React, { Component } from "react";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
-import ImageOne from "../../static/assets/1.jpg";
-import ImageTwo from "../../static/assets/2.jpg";
-import ImageThree from "../../static/assets/3.jpg";
-import ImageFour from "../../static/assets/4.jpg";
-import ImageFive from "../../static/assets/5.png";
-import ImageSix from "../../static/assets/6.jpg";
+
+import I1 from "../../static/assets/1.jpg";
+import I2 from "../../static/assets/2.jpg";
+import I3 from "../../static/assets/3.jpg";
+import I4 from "../../static/assets/4.jpg";
+import I5 from "../../static/assets/5.png";
+import I6 from "../../static/assets/6.jpg";
+import I7 from "../../static/assets/7.jpg";
+import I8 from "../../static/assets/8.png";
+import I9 from "../../static/assets/9.png";
+import I10 from "../../static/assets/10.png";
+import I11 from "../../static/assets/11.png";
+import I12 from "../../static/assets/12.png";
+import I13 from "../../static/assets/13.jpg";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -16,14 +24,21 @@ const slider = (
     className="carousel-wrapper"
     play={true}
     cancelOnInteraction={false}
-    interval={6000}
+    interval={3000}
   >
-    <div data-src={ImageOne} />
-    <div data-src={ImageTwo} />
-    <div data-src={ImageThree} />
-    <div data-src={ImageFour} />
-    <div data-src={ImageFive} />
-    <div data-src={ImageSix} />
+    <div data-src={I1} />
+    <div data-src={I2} />
+    <div data-src={I3} />
+    <div data-src={I4} />
+    <div data-src={I5} />
+    <div data-src={I6} />
+    <div data-src={I7} />
+    <div data-src={I8} />
+    <div data-src={I9} />
+    <div data-src={I10} />
+    <div data-src={I11} />
+    <div data-src={I12} />
+    <div data-src={I13} />
   </AutoplaySlider>
 );
 

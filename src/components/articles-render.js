@@ -10,7 +10,7 @@ export default class ArticlesRender extends Component {
     return (
       <main className="container">
         {this.props.articles.map((articles) => (
-          <section data-aos="slide-up" className="card">
+          <section data-aos="flip-up" className="card">
             <img src={articles.urlToImage} alt="" />
             <div>
               <h3>{articles.title}</h3>

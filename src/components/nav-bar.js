@@ -17,7 +17,7 @@ const NavigationBar = (props) => {
     <div className="nav-wrapper">
       <div className="nav-link-wrapper">
         <NavLink exact to="/login" activeClassName="nav-link-active">
-          Login
+          <i class="fas fa-plug"></i>
         </NavLink>
       </div>
       <div className="nav-link-wrapper">
@@ -38,11 +38,6 @@ const NavigationBar = (props) => {
       <div className="nav-link-wrapper">
         <NavLink exact to="/vehicle-articles" activeClassName="nav-link-active">
           Electric Articles
-        </NavLink>
-      </div>
-      <div className="nav-link-wrapper">
-        <NavLink exact to="/carousel" activeClassName="nav-link-active">
-          Carousel
         </NavLink>
       </div>
     </div>
