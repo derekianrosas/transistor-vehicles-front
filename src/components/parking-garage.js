@@ -13,7 +13,7 @@ export default class ParkingGarage extends Component {
     this.deleteVehicleRecord = this.deleteVehicleRecord.bind(this);
   }
   getVehicleRecord() {
-    fetch("http://127.0.0.1:5000/vehicle-record/get", {
+    fetch("https://capback-dir.herokuapp.com/vehicle-record/get", {
       method: "GET",
     })
       .then((response) => response.json())
@@ -27,7 +27,9 @@ export default class ParkingGarage extends Component {
 
   deleteVehicleRecord(data) {
     axios
-      .delete(`http://127.0.0.1:5000/vehicle-record/delete-vehicle/${data.id}`)
+      .delete(
+        `https://capback-dir.herokuapp.com//vehicle-record/delete-vehicle/${data.id}`
+      )
       .then((response) => {
         this.setState({
           data: this.state.data.filter((item) => {
