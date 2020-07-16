@@ -36,7 +36,7 @@ export default class VehicleArticles extends Component {
       currentPage: this.state.currentPage,
     });
     fetch(
-      "http://newsapi.org/v2/everything?q=electric-vehicles&pageSize=10&apiKey=0e79732a7c6c401b9f716cc2d13937ac",
+      "https://newsapi.org/v2/everything?q=electric-vehicles&pageSize=10&apiKey=0e79732a7c6c401b9f716cc2d13937ac",
       { method: "GET" }
     )
       .then((response) => response.json())
