@@ -61,9 +61,16 @@ export default class VehicleRecordManager extends Component {
   render() {
     return (
       <div className="vehicle-records-manager-wrapper">
-        <h2>Parking Garage</h2>
         <div className="form-container">
-          <h1>Vehicle Form</h1>
+          <header className="main-header">
+            <h1>
+              <span>Vehicle</span> Record Submit
+            </h1>
+            <p>
+              On this page you can submit your very one vehicle record, please
+              limit this to electric vehicles only!
+            </p>
+          </header>
           <form
             onChange={this.handleChange}
             onSubmit={() => {

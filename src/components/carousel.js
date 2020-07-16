@@ -4,7 +4,7 @@ import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 
 import I2 from "../../static/assets/2.jpg";
-
+import I3 from "../../static/assets/14.jpg";
 import I4 from "../../static/assets/4.jpg";
 import I5 from "../../static/assets/5.png";
 
@@ -26,6 +26,7 @@ const slider = (
     interval={3000}
   >
     <div data-src={I2} />
+    <div data-src={I3} />
     <div data-src={I4} />
     <div data-src={I5} />
     <div data-src={I7} />

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 export default class ParkingGarage extends Component {
   constructor(props) {
@@ -40,8 +42,10 @@ export default class ParkingGarage extends Component {
   }
 
   componentDidMount() {
-    console.log("event", event);
     this.getVehicleRecord();
+    AOS.init({
+      duration: 2500,
+    });
   }
 
   render() {
@@ -49,11 +53,18 @@ export default class ParkingGarage extends Component {
     return (
       <div>
         <div>
-          <h1>Vehicle Records</h1>
-          <h3>Here you will find all vehicle records in database</h3>
+          <header className="main-header">
+            <h1>
+              <span>Parking</span> Garage
+            </h1>
+            <p>
+              On this page you can find information on all user input vehicle
+              records, including the ones you posted!
+            </p>
+          </header>
           {data.map((data) => (
             <div className="container">
-              <div className="card">
+              <div data-aos="slide-up" className="card">
                 <h3>{data.model}</h3>
                 <p>
                   <strong>Description:</strong> {data.description}
