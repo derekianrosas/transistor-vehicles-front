@@ -16,7 +16,7 @@ const NavigationBar = (props) => {
   return (
     <div className="nav-wrapper">
       <div className="nav-link-wrapper">
-        <NavLink exact to="/login" activeClassName="nav-link-active">
+        <NavLink exact to="/home" activeClassName="nav-link-active">
           <i class="fas fa-plug"></i>
         </NavLink>
       </div>

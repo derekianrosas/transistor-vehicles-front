@@ -3,12 +3,11 @@ import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 
-import I1 from "../../static/assets/1.jpg";
 import I2 from "../../static/assets/2.jpg";
-import I3 from "../../static/assets/3.jpg";
+
 import I4 from "../../static/assets/4.jpg";
 import I5 from "../../static/assets/5.png";
-import I6 from "../../static/assets/6.jpg";
+
 import I7 from "../../static/assets/7.jpg";
 import I8 from "../../static/assets/8.png";
 import I9 from "../../static/assets/9.png";
@@ -26,12 +25,9 @@ const slider = (
     cancelOnInteraction={false}
     interval={3000}
   >
-    <div data-src={I1} />
     <div data-src={I2} />
-    <div data-src={I3} />
     <div data-src={I4} />
     <div data-src={I5} />
-    <div data-src={I6} />
     <div data-src={I7} />
     <div data-src={I8} />
     <div data-src={I9} />

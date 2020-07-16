@@ -61,7 +61,7 @@ export default class VehicleArticles extends Component {
   render() {
     return (
       <div>
-        <header class="main-header">
+        <header className="main-header">
           <h1>
             <span>Electric</span> Articles
           </h1>
