@@ -9,32 +9,10 @@ export default class VehicleArticles extends Component {
 
     this.state = {
       articles: [],
-      totalCount: 0,
-      currentPage: 1,
     };
-    this.getVehicleArticles = this.getVehicleArticles.bind(this);
-    this.onScroll = this.onScroll.bind(this);
-    window.addEventListener("scroll", this.onScroll, false);
-  }
-
-  onScroll() {
-    if (this.state.articles.length === this.state.totalCount) {
-      return;
-    }
-
-    if (
-      window.innerHeight + document.documentElement.scrollTop ===
-      document.documentElement.offsetHeight
-    ) {
-      this.getVehicleArticles();
-    }
   }
 
   getVehicleArticles() {
-    console.log("test");
-    this.setState({
-      currentPage: this.state.currentPage,
-    });
     fetch(
       "https://newsapi.org/v2/everything?q=electric-vehicles&pageSize=10&apiKey=0e79732a7c6c401b9f716cc2d13937ac",
       { method: "GET" }
@@ -52,10 +30,6 @@ export default class VehicleArticles extends Component {
     AOS.init({
       duration: 2500,
     });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
   }
 
   render() {
