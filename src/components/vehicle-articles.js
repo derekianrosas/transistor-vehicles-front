@@ -1,26 +1,24 @@
 import React, { Component } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import ArticlesRender from "./articles-render";
 
 export default class VehicleArticles extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      articles: [],
+      data: [],
     };
   }
 
   getVehicleArticles() {
-    fetch(
-      "https://newsapi.org/v2/everything?q=electric-vehicles&pageSize=10&apiKey=0e79732a7c6c401b9f716cc2d13937ac",
-      { method: "GET" }
-    )
+    fetch("https://capbacknews-dir.herokuapp.com/news-article/get-articles", {
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((data) =>
         this.setState({
-          articles: data.articles,
+          data: data,
         })
       );
   }
@@ -33,6 +31,7 @@ export default class VehicleArticles extends Component {
   }
 
   render() {
+    const { data } = this.state;
     return (
       <div>
         <header className="main-header">
@@ -44,7 +43,21 @@ export default class VehicleArticles extends Component {
             all electric vehicles!
           </p>
         </header>
-        <ArticlesRender articles={this.state.articles} />
+
+        {data.map((data) => (
+          <main className="container">
+            <section data-aos="flip-up" className="card">
+              <img src={data.urlToImage} alt="" />
+              <div>
+                <h3>{data.title}</h3>
+                <p>{data.description}</p>
+                <a href={data.url} className="btn2">
+                  Read Article
+                </a>
+              </div>
+            </section>
+          </main>
+        ))}
       </div>
     );
   }
