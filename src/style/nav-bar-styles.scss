@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 30px;
+  overflow: hidden;
 
   .right-side {
     a {
@@ -44,5 +45,11 @@
       border-bottom: 1px solid black;
       color: black;
     }
+  }
+}
+
+@media (max-width: 700px) {
+  .nav-wrapper {
+    display: initial;
   }
 }
