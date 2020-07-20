@@ -16,15 +16,13 @@ const NavigationBar = (props) => {
   return (
     <div className="nav-wrapper">
       <div className="nav-link-wrapper">
-        <NavLink exact to="/home" activeClassName="nav-link-active">
-          <i class="fas fa-plug">
-            {" "}
-            <span>Transistor</span> Vehicles
-          </i>
-        </NavLink>
+        <i class="fas fa-plug">
+          {" "}
+          <span>Transistor</span> Vehicles
+        </i>
       </div>
       <div className="nav-link-wrapper">
-        <NavLink exact to="/home" activeClassName="nav-link-active">
+        <NavLink exact to="/" activeClassName="nav-link-active">
           Home
         </NavLink>
       </div>

@@ -14,7 +14,7 @@ export default class App extends Component {
         <Router>
           <NavigationBar />
           <Switch>
-            <Route path="/home" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/parking-garage" component={ParkingGarage} />
             <Route path="/vehicle-articles" component={VehicleArticles} />
             <Route

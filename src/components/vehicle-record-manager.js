@@ -37,22 +37,29 @@ export default class VehicleRecordManager extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     axios
       .post(
-        "https://capback-dir.herokuapp.com//vehicle-record/add-vehicle",
+        "http://127.0.0.1:5000/vehicle-record/add-vehicle",
         this.buildForm()
       )
       .then((response) => {
         console.log("response", response);
+        this.setState({
+          manufacturer: "",
+          model: "",
+          miles: "",
+          year: "",
+          description: "",
+        });
       })
       .catch((error) => {
         console.log("handle submit error", error);
       });
-
-    event.preventDefault();
   }
 
   handleChange(event) {
+    event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -73,9 +80,7 @@ export default class VehicleRecordManager extends Component {
           </header>
           <form
             onChange={this.handleChange}
-            onSubmit={() => {
-              this.handleSubmit();
-            }}
+            onSubmit={(this.handleSubmit, this.handleDefault)}
           >
             <div>
               <input
