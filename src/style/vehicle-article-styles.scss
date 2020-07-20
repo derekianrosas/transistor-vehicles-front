@@ -11,6 +11,9 @@
     box-sizing: none;
   }
 }
+p {
+  padding: 5px;
+}
 
 body {
   font-size: 1.3rem;
@@ -71,6 +74,7 @@ img {
 
 .card h3 {
   margin-bottom: 2rem;
+  padding: 5px;
 }
 
 .card img {
@@ -141,5 +145,9 @@ img {
 
   .form {
     margin-top: 50px;
+  }
+
+  .card img {
+    height: 200px;
   }
 }
