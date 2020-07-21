@@ -75,43 +75,37 @@ export default class VehicleRecordManager extends Component {
               limit this to electric vehicles only!
             </p>
           </header>
-          <form
-            className="form-class"
-            onSubmit={this.handleSubmit}
-            onChange={this.handleChange}
-          >
-            <div>
-              <input
-                type="text"
-                name="manufacturer"
-                placeholder="Manufacturer"
-                value={this.state.manufacturer}
-                onChange={this.handleChange}
-              />
-              <input
-                type="text"
-                name="model"
-                placeholder="Model"
-                value={this.state.model}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <input
-                type="text"
-                name="miles"
-                placeholder="Miles"
-                value={this.state.miles}
-                onChange={this.handleChange}
-              />
-              <input
-                type="text"
-                name="year"
-                placeholder="Year"
-                value={this.state.year}
-                onChange={this.handleChange}
-              />
-            </div>
+          <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+            <input
+              type="text"
+              name="manufacturer"
+              placeholder="Manufacturer"
+              value={this.state.manufacturer}
+              onChange={this.handleChange}
+            />
+            <input
+              type="text"
+              name="model"
+              placeholder="Model"
+              value={this.state.model}
+              onChange={this.handleChange}
+            />
+
+            <input
+              type="text"
+              name="miles"
+              placeholder="Miles"
+              value={this.state.miles}
+              onChange={this.handleChange}
+            />
+            <input
+              type="text"
+              name="year"
+              placeholder="Year"
+              value={this.state.year}
+              onChange={this.handleChange}
+            />
+
             <div className="description-text">
               <textarea
                 cols="30"
@@ -135,7 +129,6 @@ export default class VehicleRecordManager extends Component {
             </div>
           </form>
         </div>
-        <div></div>
       </div>
     );
   }

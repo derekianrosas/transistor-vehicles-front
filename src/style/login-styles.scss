@@ -16,6 +16,12 @@ h2 {
   flex-direction: column;
 }
 
+@media (max-width: 600px) {
+  .form-container {
+    display: initial;
+  }
+}
+
 .btn {
   cursor: pointer;
   background-color: #3498db;
