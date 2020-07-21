@@ -74,7 +74,6 @@ export default class VehicleRecordManager extends Component {
               On this page you can submit your very one vehicle record, please
               limit this to electric vehicles only!
             </p>
-            <p style={{ color: "green" }}>{this.state.responseData}</p>
           </header>
           <form
             className="form-class"
@@ -125,6 +124,7 @@ export default class VehicleRecordManager extends Component {
               />
             </div>
             <div>
+              <p style={{ color: "green" }}>{this.state.responseData}</p>
               <button
                 onSubmit={this.handleSubmit}
                 className="btn"
@@ -135,6 +135,7 @@ export default class VehicleRecordManager extends Component {
             </div>
           </form>
         </div>
+        <div></div>
       </div>
     );
   }

@@ -15,7 +15,7 @@ const NavigationBar = (props) => {
 
   return (
     <div className="nav-wrapper">
-      <div className="nav-link-wrapper">
+      <div className="nav-link-wrappers">
         <i class="fas fa-plug">
           {" "}
           <span>Transistor</span> Vehicles
