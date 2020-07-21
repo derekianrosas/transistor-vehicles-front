@@ -12,6 +12,7 @@ export default class VehicleRecordManager extends Component {
       miles: "",
       year: "",
       description: "",
+      responseData: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -39,11 +40,14 @@ export default class VehicleRecordManager extends Component {
   handleSubmit(event) {
     axios
       .post(
-        "http://127.0.0.1:5000/vehicle-record/add-vehicle",
+        "https://capback-dir.herokuapp.com//vehicle-record/add-vehicle",
         this.buildForm()
       )
       .then((response) => {
         console.log("response", response);
+        this.setState({
+          responseData: "Vehicle added Successfully",
+        });
       })
       .catch((error) => {
         console.log("handle submit error", error);
@@ -71,14 +75,20 @@ export default class VehicleRecordManager extends Component {
               limit this to electric vehicles only!
             </p>
           </header>
-          <div className="submit-message"></div>
-          <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+          <div className="submit-message">
+            <h3 style={{ color: "green" }}>{this.state.responseData}</h3>
+          </div>
+          <form
+            className="form-class"
+            onSubmit={this.handleSubmit}
+            onChange={this.handleChange}
+          >
             <div>
               <input
                 type="text"
                 name="manufacturer"
                 placeholder="Manufacturer"
-                value={this.state.make}
+                value={this.state.manufacturer}
                 onChange={this.handleChange}
               />
               <input
