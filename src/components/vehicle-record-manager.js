@@ -37,7 +37,6 @@ export default class VehicleRecordManager extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     axios
       .post(
         "http://127.0.0.1:5000/vehicle-record/add-vehicle",
@@ -45,17 +44,11 @@ export default class VehicleRecordManager extends Component {
       )
       .then((response) => {
         console.log("response", response);
-        this.setState({
-          manufacturer: "",
-          model: "",
-          miles: "",
-          year: "",
-          description: "",
-        });
       })
       .catch((error) => {
         console.log("handle submit error", error);
       });
+    event.preventDefault();
   }
 
   handleChange(event) {
@@ -78,10 +71,8 @@ export default class VehicleRecordManager extends Component {
               limit this to electric vehicles only!
             </p>
           </header>
-          <form
-            onChange={this.handleChange}
-            onSubmit={(this.handleSubmit, this.handleDefault)}
-          >
+          <div className="submit-message"></div>
+          <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
             <div>
               <input
                 type="text"
@@ -126,7 +117,11 @@ export default class VehicleRecordManager extends Component {
               />
             </div>
             <div>
-              <button className="btn" type="submit">
+              <button
+                onSubmit={this.handleSubmit}
+                className="btn"
+                type="submit"
+              >
                 Save Vehicle
               </button>
             </div>
