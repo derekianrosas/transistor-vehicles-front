@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { data } from "autoprefixer";
 
 export default class VehicleRecordManager extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class VehicleRecordManager extends Component {
       year: "",
       description: "",
       responseData: "",
+      dataColor: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -38,21 +40,30 @@ export default class VehicleRecordManager extends Component {
   }
 
   handleSubmit(event) {
-    axios
-      .post(
-        "https://capback-dir.herokuapp.com//vehicle-record/add-vehicle",
-        this.buildForm()
-      )
-      .then((response) => {
-        console.log("response", response);
-        this.setState({
-          responseData: "Vehicle added Successfully",
-        });
-      })
-      .catch((error) => {
-        console.log("handle submit error", error);
+    if (this.state.manufacturer == "") {
+      event.preventDefault();
+      this.setState({
+        responseData: "Error: One or more fields not filled out",
+        dataColor: "red",
       });
-    event.preventDefault();
+    } else {
+      axios
+        .post(
+          "https://capback-dir.herokuapp.com//vehicle-record/add-vehicle",
+          this.buildForm()
+        )
+        .then((response) => {
+          console.log("response", response);
+          this.setState({
+            responseData: "Vehicle added Successfully",
+            dataColor: "green",
+          });
+        })
+        .catch((error) => {
+          console.log("handle submit error", error);
+        });
+      event.preventDefault();
+    }
   }
 
   handleChange(event) {
@@ -118,7 +129,9 @@ export default class VehicleRecordManager extends Component {
               />
             </div>
             <div>
-              <p style={{ color: "green" }}>{this.state.responseData}</p>
+              <p style={{ color: `${this.state.dataColor}` }}>
+                {this.state.responseData}
+              </p>
               <button
                 onSubmit={this.handleSubmit}
                 className="btn"
