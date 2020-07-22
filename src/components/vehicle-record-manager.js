@@ -55,6 +55,13 @@ export default class VehicleRecordManager extends Component {
         .then((response) => {
           console.log("response", response);
           this.setState({
+            manufacturer: "",
+            model: "",
+            miles: "",
+            year: "",
+            description: "",
+            responseData: "",
+            dataColor: "",
             responseData: "Vehicle added Successfully",
             dataColor: "green",
           });
